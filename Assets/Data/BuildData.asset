@@ -15,5 +15,5 @@ MonoBehaviour:
   name: test1
   prefab: {fileID: 4908679183153965178, guid: 48918f1b7643eee48a5d75ac89938e93, type: 3}
   visual: {fileID: 0}
-  width: 0
-  height: 0
+  width: 2
+  height: 2
