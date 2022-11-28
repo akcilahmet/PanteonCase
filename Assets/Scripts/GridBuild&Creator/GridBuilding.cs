@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class GridBuilding : MonoBehaviour
 {
-    public BuildingSO buildingSo;
+    
     private GridCreator GridCreator;
 
     private void Start()
@@ -18,18 +18,23 @@ public class GridBuilding : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && BuildingManager.Instance.GetActiveBuildingSo()!=null)
         {
             
             Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
             GridCreator.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
             Vector3 placedObjectWorldPosition =   GridCreator.pathfinding.GetGrid().GetWorldPosition(x, z);//build objenin inşa edilecek tıklama konumu
 
-            List<Vector2Int> buildObjectgridPosList= buildingSo.GetGridPositionList(new Vector2Int(x, z), BuildingSO.Dir.Down);//build objenin kaplayacağı alanlar listesi
+            List<Vector2Int> buildObjectgridPosList= BuildingManager.Instance.GetActiveBuildingSo().GetGridPositionList(new Vector2Int(x, z), BuildingSO.Dir.Down);//build objenin kaplayacağı alanlar listesi
 
             bool canBuild = true;
             foreach (var VARIABLE in buildObjectgridPosList)
             {
+                if (GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y) == null)
+                {
+                    canBuild = false;
+                    break;
+                }
                 if ( !GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).CanBuild())
                 {
                     //cannot build here
@@ -38,15 +43,16 @@ public class GridBuilding : MonoBehaviour
                 }
             }
             
-            if (canBuild)
+            if (canBuild && BuildingManager.Instance.GetActiveBuildingSo().prefab!=null)
             {
-                var build=Instantiate(buildingSo.prefab,placedObjectWorldPosition,quaternion.identity);
+                var build=Instantiate(BuildingManager.Instance.GetActiveBuildingSo().prefab,placedObjectWorldPosition,quaternion.identity);
                 
                 foreach (var VARIABLE in buildObjectgridPosList)
                 {
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform);
+                    GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetIsWalkable(!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable);//inşa edilen alan hareket edilmemz hale getirildi
                 }
-                //GridCreator.pathfinding.GetNode(x, z).SetBuilding(build.transform);
+               
             }
             else
             {
