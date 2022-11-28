@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuildingSO : ScriptableObject
 {
     public string name;
+    public Sprite uıImage;
     public Transform prefab;
     public Transform visual;
     public int width;

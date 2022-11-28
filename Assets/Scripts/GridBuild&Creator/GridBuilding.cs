@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Utils;
+using UnityEngine.EventSystems;
+
 public class GridBuilding : MonoBehaviour
 {
     public BuildingSO buildingSo;
@@ -16,7 +18,7 @@ public class GridBuilding : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             
             Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();

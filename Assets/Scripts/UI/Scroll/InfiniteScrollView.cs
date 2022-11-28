@@ -13,6 +13,7 @@ public class InfiniteScrollView : MonoBehaviour ,IBeginDragHandler, IDragHandler
     public ScrollContent scrollContent;
     public float outOfBoundsThreshold;
 
+    //public float test;
     private void Start()
     {
         scrollRect = GetComponent<ScrollRect>();
@@ -70,12 +71,12 @@ public class InfiniteScrollView : MonoBehaviour ,IBeginDragHandler, IDragHandler
     bool ReachedThres(Transform item)
     {
        
-        float posYThresHold = transform.position.y + scrollContent.height * .5f + outOfBoundsThreshold;
-        float negYThresHold = transform.position.y - scrollContent.height * .5f - outOfBoundsThreshold;
+        float posYThresHold = transform.position.y + scrollContent.height * .6f + outOfBoundsThreshold;
+        float negYThresHold = transform.position.y - scrollContent.height * .6f - outOfBoundsThreshold;
        
         return drag
-            ? item.position.y - scrollContent.childHeight * .5f > posYThresHold
-            : item.position.y + scrollContent.childHeight * .5f < negYThresHold;
+            ? item.position.y - scrollContent.childHeight * .6f > posYThresHold
+            : item.position.y + scrollContent.childHeight * .6f < negYThresHold;
             
         
       

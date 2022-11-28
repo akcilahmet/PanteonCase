@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f97505ae61f90ae4dab0d5ab4e0bf03d, type: 3}
-  m_Name: BuildData
+  m_Name: PowerPlantType2
   m_EditorClassIdentifier: 
-  name: test1
+  name: PowerPlantType2
+  "u\u0131Image": {fileID: 21300000, guid: db7e0a9bb3c471e4bbde4adc6363c028, type: 3}
   prefab: {fileID: 4908679183153965178, guid: 48918f1b7643eee48a5d75ac89938e93, type: 3}
   visual: {fileID: 0}
   width: 2
-  height: 2
+  height: 3
