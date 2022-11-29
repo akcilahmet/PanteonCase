@@ -7,6 +7,8 @@ public class BuildingSO : ScriptableObject
 {
     public string name;
     public Sprite uıImage;
+    public string typeOfSoldierName;
+    public Sprite typeOfSoldierProducedSprite;
     public Transform prefab;
     public Transform visual;
     public int width;
