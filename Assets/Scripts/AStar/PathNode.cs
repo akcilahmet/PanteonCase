@@ -16,6 +16,7 @@ public class PathNode {
 
     public bool isWalkable;
     public Transform build;
+    public BuildingSO buildSo;
     public PathNode cameFromNode;
 
     public PathNode(Grid<PathNode> grid, int x, int y) {
@@ -34,16 +35,22 @@ public class PathNode {
         this.isWalkable = isWalkable;
         grid.TriggerGridObjectChanged(x, y);
     }  
-    public void SetBuilding(Transform transform) {
+    public void SetBuilding(Transform transform,BuildingSO buildingSo) {
         this.build = transform;
+        this.buildSo = buildingSo;
         grid.TriggerGridObjectChanged(x, y);
     }
 
-    public bool CanBuild()
+    public BuildingSO GetBuilding()
+    {
+        return this.buildSo;
+    }
+    
+        public bool CanBuild()
     {
         return build == null;
     }
-
+    
     public void ClearBuild()
     {
         build = null;

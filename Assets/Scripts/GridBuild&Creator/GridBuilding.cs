@@ -49,7 +49,7 @@ public class GridBuilding : MonoBehaviour
                 
                 foreach (var VARIABLE in buildObjectgridPosList)
                 {
-                    GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform);
+                    GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform,BuildingManager.Instance.GetActiveBuildingSo());
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetIsWalkable(!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable);//inşa edilen alan hareket edilmemz hale getirildi
                 }
                
@@ -60,6 +60,19 @@ public class GridBuilding : MonoBehaviour
             }
            
            
+        }
+
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject() &&
+            BuildingManager.Instance.GetActiveBuildingSo() != null)
+        {
+            Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
+            GridCreator.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
+            BuildingSO tempSO = GridCreator.pathfinding.GetNode(x, z).GetBuilding();
+            InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
+                tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
+            Debug.Log("VAR   "+GridCreator.pathfinding.GetNode(x,z).GetBuilding());
+          
+
         }
     }
 
