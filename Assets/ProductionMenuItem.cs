@@ -13,8 +13,8 @@ public class ProductionMenuItem : MonoBehaviour
     [Header("BtnClick")][Space(10)]
     private Button button;
     [SerializeField] private AnimationCurve curve = null;
-    private float time;
-    public bool selectedItem;
+   
+   
     private void Awake()
     {
         LevelCreator.Instance.AddProductionMenuItemList(this);
@@ -25,31 +25,22 @@ public class ProductionMenuItem : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(() => GetBuildingPrefabObject());
     }
-
-    private void Update()
-    {
-        if(selectedItem)
-            ClickedAnimationItem();
-    }
-
+    
     public BuildingSO GetBuildingPrefabObject()
     {
         if (buildingSO != null)
         {
             Debug.Log(buildingSO.name);
-            selectedItem = true;
+           
+            InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
+                buildingSO.typeOfSoldierProducedSprite,buildingSO.typeOfSoldierName);
             
             return BuildingManager.Instance.buildingSo=buildingSO;
         }
 
         return null;
     }
-
-    public void ClickedAnimationItem()
-    {
-        time += Time.deltaTime;
-        transform.localScale = new Vector3(curve.Evaluate(time), curve.Evaluate(time), 1);
-    }
+    
     
     public void ProductionMenuItemUpdate(Sprite targetSprite, BuildingSO buildingSO)
     {
