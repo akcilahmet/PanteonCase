@@ -10,6 +10,7 @@ public class GridBuilding : MonoBehaviour
 {
     
     private GridCreator GridCreator;
+    
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class GridBuilding : MonoBehaviour
 
     private void Update()
     {
+      
+        
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && BuildingManager.Instance.GetActiveBuildingSo()!=null)
         {
             
@@ -62,20 +65,39 @@ public class GridBuilding : MonoBehaviour
            
         }
 
-        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject() &&
-            BuildingManager.Instance.GetActiveBuildingSo() != null)
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
             GridCreator.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
             BuildingSO tempSO = GridCreator.pathfinding.GetNode(x, z).GetBuilding();
-            InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
-                tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
-            Debug.Log("VAR   "+GridCreator.pathfinding.GetNode(x,z).GetBuilding());
+
+            if (tempSO != null)
+            {
+                InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
+                    tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
+                Debug.Log("VAR   "+GridCreator.pathfinding.GetNode(x,z).GetBuilding());
+            }
+            
           
 
         }
     }
 
+    
+    public Vector3 GetMouseWorldSnappedPosition() {
+        Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
+        GridCreator.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int y);
+
+        if (BuildingManager.Instance.GetActiveBuildingSo()!=null )
+        {
+
+            Vector3 placedObjectWorldPosition = GridCreator.pathfinding.GetGrid().GetWorldPosition(x, y);
+                                                
+            return placedObjectWorldPosition;
+        } else {
+            return mousePosition;
+        }
+    }
     
  
 }

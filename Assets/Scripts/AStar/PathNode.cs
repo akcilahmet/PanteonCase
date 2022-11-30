@@ -43,10 +43,15 @@ public class PathNode {
 
     public BuildingSO GetBuilding()
     {
-        return this.buildSo;
+        if (this.buildSo != null)
+        {
+            return this.buildSo;
+        }
+
+        return null;
     }
     
-        public bool CanBuild()
+    public bool CanBuild()
     {
         return build == null;
     }

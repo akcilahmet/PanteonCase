@@ -426,7 +426,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedItem: 0
 --- !u!1 &79197617
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +635,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedItem: 0
 --- !u!114 &335060765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1578,7 +1576,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedItem: 0
 --- !u!1 &1054145996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2052,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258681072}
   m_CullTransparentMesh: 1
+--- !u!1 &1272638287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1272638289}
+  - component: {fileID: 1272638288}
+  m_Layer: 0
+  m_Name: Ghost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1272638288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272638287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9d177988ddc0b4db18a2c79698d974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridBuilding: {fileID: 1228460026}
+--- !u!4 &1272638289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272638287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.09837, y: 44.9568, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1287754540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2481,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedItem: 0
 --- !u!114 &1579992463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,7 +2770,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedItem: 0
 --- !u!114 &1836439579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2975,7 +3014,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  selectedItem: 0
 --- !u!114 &2002180541
 MonoBehaviour:
   m_ObjectHideFlags: 0
