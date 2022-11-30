@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class BuildingManager : MonoBehaviour
 {
     public BuildingSO buildingSo;
     
+    public delegate void BuildGhost();
+
+    public event BuildGhost ghostEvent;
     #region Singleton
 
     public static BuildingManager Instance { get; private set; }
@@ -31,5 +35,13 @@ public class BuildingManager : MonoBehaviour
     public BuildingSO GetActiveBuildingSo()
     {
         return buildingSo;
+    }
+    
+    
+    public void DeselectGhostObj() {
+        RefreshSelectedGhost();
+    }
+    private void RefreshSelectedGhost() {
+        ghostEvent?.Invoke();
     }
 }

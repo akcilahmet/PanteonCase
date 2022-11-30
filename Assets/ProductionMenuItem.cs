@@ -31,11 +31,13 @@ public class ProductionMenuItem : MonoBehaviour
         if (buildingSO != null)
         {
             Debug.Log(buildingSO.name);
-           
+            
             InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
                 buildingSO.typeOfSoldierProducedSprite,buildingSO.typeOfSoldierName);
-            
-            return BuildingManager.Instance.buildingSo=buildingSO;
+           
+            BuildingManager.Instance.buildingSo = buildingSO;
+            BuildingManager.Instance.DeselectGhostObj();
+            return BuildingManager.Instance.buildingSo ;
         }
 
         return null;
