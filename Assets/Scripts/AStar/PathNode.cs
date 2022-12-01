@@ -19,6 +19,7 @@ public class PathNode {
     public BuildingSO buildSo;
     public PathNode cameFromNode;
 
+    public GameObject character;
     public PathNode(Grid<PathNode> grid, int x, int y) {
         this.grid = grid;
         this.x = x;
@@ -38,6 +39,7 @@ public class PathNode {
     public void SetBuilding(Transform transform,BuildingSO buildingSo) {
         this.build = transform;
         this.buildSo = buildingSo;
+       
         grid.TriggerGridObjectChanged(x, y);
     }
 
@@ -65,5 +67,31 @@ public class PathNode {
     public override string ToString() {
         return x + "," + y;
     }
+    
+    
 
+    public void SetCharacter(GameObject charecter,BuildingSO buildingSo)
+    {
+        this.character = charecter;
+        this.buildSo = buildingSo;
+        grid.TriggerGridObjectChanged(x, y);
+    }
+    public GameObject GetCharacter()
+    {
+        if (this.character != null)
+        {
+            return this.character;
+        }
+
+        return null;
+    }
+
+    public bool CanCharacter()
+    {
+        return character == null;
+    }
+
+    public Vector3 GetWorldPosition(float cellSize,Vector3 originPosition) {
+        return new Vector3(x, y) * cellSize + originPosition;
+    }
 }

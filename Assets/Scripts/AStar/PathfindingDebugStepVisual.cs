@@ -11,7 +11,7 @@ public class PathfindingDebugStepVisual : MonoBehaviour {
     public static PathfindingDebugStepVisual Instance { get; private set; }
     [SerializeField] private Transform GridManager;
     [SerializeField] private Transform pfPathfindingDebugStepVisualNode;
-    private List<Transform> visualNodeList;
+    public List<Transform> visualNodeList;
     private List<GridSnapshotAction> gridSnapshotActionList;
     private bool autoShowSnapshots;
     private float autoShowSnapshotsTimer;
@@ -150,7 +150,8 @@ public class PathfindingDebugStepVisual : MonoBehaviour {
 
     private Transform CreateVisualNode(Vector3 position) {
         Transform visualNodeTransform = Instantiate(pfPathfindingDebugStepVisualNode, position, Quaternion.identity);
-        //visualNodeTransform.transform.SetParent(GridManager.transform);
+        visualNodeTransform.transform.SetParent(GridManager.transform);
+       
         return visualNodeTransform;
     }
 

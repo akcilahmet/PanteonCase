@@ -38,18 +38,22 @@ public class GridBuilding : MonoBehaviour
                     canBuild = false;
                     break;
                 }
-                if ( !GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).CanBuild())
+                if ( !GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).CanBuild() || !GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).CanCharacter())
                 {
                     //cannot build here
                     canBuild = false;
                     break;
                 }
             }
-            
-            if (canBuild && BuildingManager.Instance.GetActiveBuildingSo().prefab!=null)
+
+           
+           
+            if (canBuild   && BuildingManager.Instance.GetActiveBuildingSo().prefab!=null)
             {
                 var build=Instantiate(BuildingManager.Instance.GetActiveBuildingSo().prefab,placedObjectWorldPosition,quaternion.identity);
-                
+                ProduceSoldiers produceSoldiers = build.gameObject.GetComponent<ProduceSoldiers>();
+                produceSoldiers.soldierType = BuildingManager.Instance.GetActiveBuildingSo().soldierPrefab.gameObject;
+                produceSoldiers.SoldierProduceTimerStart = true;
                 foreach (var VARIABLE in buildObjectgridPosList)
                 {
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform,BuildingManager.Instance.GetActiveBuildingSo());
@@ -57,11 +61,13 @@ public class GridBuilding : MonoBehaviour
                 }
                
             }
-            else
+
+            
+            else if(!canBuild )
             {
                 Debug.Log("build varr");
             }
-           
+            Debug.Log("yyyy"+GridCreator.pathfinding.GetNode(x, z).CanCharacter());
            
         }
 
@@ -70,12 +76,13 @@ public class GridBuilding : MonoBehaviour
             Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
             GridCreator.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
             BuildingSO tempSO = GridCreator.pathfinding.GetNode(x, z).GetBuilding();
-
+            
             if (tempSO != null)
             {
                 InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
                     tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
                 Debug.Log("VAR   "+GridCreator.pathfinding.GetNode(x,z).GetBuilding());
+                
             }
             
           

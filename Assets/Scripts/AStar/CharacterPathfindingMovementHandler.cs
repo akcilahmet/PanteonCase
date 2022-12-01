@@ -16,9 +16,9 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
         HandleMovement();
      
 
-        if (Input.GetMouseButtonDown(0)) {
+        /*if (Input.GetMouseButtonDown(0)) {
             SetTargetPosition(UtilsMethod.GetMouseWorldPosition());
-        }
+        }*/
     }
     
     private void HandleMovement() {

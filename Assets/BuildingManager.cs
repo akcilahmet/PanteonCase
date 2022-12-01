@@ -6,10 +6,10 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
     public BuildingSO buildingSo;
-    
     public delegate void BuildGhost();
-
     public event BuildGhost ghostEvent;
+
+  
     #region Singleton
 
     public static BuildingManager Instance { get; private set; }

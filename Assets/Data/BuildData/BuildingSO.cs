@@ -9,11 +9,12 @@ public class BuildingSO : ScriptableObject
     public Sprite uıImage;
     public string typeOfSoldierName;
     public Sprite typeOfSoldierProducedSprite;
+    public Transform soldierPrefab;
     public Transform prefab;
     public Transform visual;
     public int width;
     public int height;
-
+        
     public enum Dir
     {
         Down,

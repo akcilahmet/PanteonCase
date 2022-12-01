@@ -9,9 +9,9 @@ public class Pathfinding {
 
     public static Pathfinding Instance { get; private set; }
 
-    private Grid<PathNode> grid;
-    private List<PathNode> openList;
-    private List<PathNode> closedList;
+    public Grid<PathNode> grid;
+    public List<PathNode> openList;
+    public List<PathNode> closedList;
    
     public Pathfinding(int width, int height,int cellSize, Vector3 originPos) {
         Instance = this;
@@ -22,10 +22,10 @@ public class Pathfinding {
     public Grid<PathNode> GetGrid() {
         return grid;
     }
-   
+
+
 
   
-
     public List<Vector3> FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition) {
         grid.GetXY(startWorldPosition, out int startX, out int startY);
         grid.GetXY(endWorldPosition, out int endX, out int endY);
@@ -139,7 +139,7 @@ public class Pathfinding {
         return grid.GetGridObject(x, y);
     }
 
-    
+   
   
     private List<PathNode> CalculatePath(PathNode endNode) {
         List<PathNode> path = new List<PathNode>();
