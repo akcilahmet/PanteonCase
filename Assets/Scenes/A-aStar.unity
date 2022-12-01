@@ -1775,17 +1775,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184375478}
   m_CullTransparentMesh: 1
---- !u!114 &1198489100 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7491343633622289122, guid: 901aba0f191116443b5b0696029b2b81, type: 3}
-  m_PrefabInstance: {fileID: 7491343634673939694}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62a5d33cc1ef9e4e96862f8e78af80d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1228460023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,9 +1864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a861795e7cd74b418e3b0e02523e565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPathfinding: {fileID: 1198489100}
-  pathfindingDebugStepVisual: {fileID: 0}
-  soldierUret: 0
+  CharacterPathfindingMovementHandler: {fileID: 0}
 --- !u!1 &1258681072
 GameObject:
   m_ObjectHideFlags: 0

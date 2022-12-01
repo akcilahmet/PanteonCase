@@ -37,6 +37,8 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
                   
                 }
             }
+            Debug.Log("bbbbbbbbbbbbbbbbb");
+
         } 
     }
 
@@ -49,6 +51,8 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
     }
 
     public void SetTargetPosition(Vector3 targetPosition) {
+        Debug.Log("bbbbbbbbbbbbbbbbb");
+
         currentPathIndex = 0;
         pathVectorList = Pathfinding.Instance.FindPath(GetPosition(), targetPosition);
 

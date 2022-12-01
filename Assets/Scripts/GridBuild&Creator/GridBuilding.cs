@@ -59,6 +59,8 @@ public class GridBuilding : MonoBehaviour
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform,BuildingManager.Instance.GetActiveBuildingSo());
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetIsWalkable(!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable);//inşa edilen alan hareket edilmemz hale getirildi
                 }
+
+              
                
             }
 

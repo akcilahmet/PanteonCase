@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
@@ -12,7 +13,7 @@ public class GridCreator : MonoBehaviour
    
     [SerializeField] private PathfindingDebugStepVisual pathfindingDebugStepVisual;
     [SerializeField] private PathfindingVisual pathfindingVisual;
-  
+    //[SerializeField] private CharacterPathfindingMovementHandler characterPathfinding;
     public Pathfinding pathfinding;
   
     #region Singleton
@@ -42,12 +43,6 @@ public class GridCreator : MonoBehaviour
         pathfindingVisual.SetGrid(pathfinding.GetGrid());
         
     }
-
-    
-  
-
-
-
 
    
 }

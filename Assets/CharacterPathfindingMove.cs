@@ -7,48 +7,45 @@ using UnityEngine.EventSystems;
 
 public class CharacterPathfindingMove : MonoBehaviour
 {
-    [SerializeField] private CharacterPathfindingMovementHandler characterPathfinding;
-    [SerializeField] private PathfindingDebugStepVisual pathfindingDebugStepVisual;
-    private GridCreator gridCreator;
+    public CharacterPathfindingMovementHandler CharacterPathfindingMovementHandler;
 
-    public bool soldierUret;
-    private void Start()
+    private void Update()
     {
-        gridCreator = GetComponent<GridCreator>();
-        
-      
-    }
-
-    private void Update() {
-        /*if (Input.GetMouseButtonDown(0)&& !EventSystem.current.IsPointerOverGameObject()) {
+        if (Input.GetMouseButtonDown(0)) {
             Vector3 mouseWorldPosition = UtilsMethod.GetMouseWorldPosition();
-            gridCreator.pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
-           
-            
-            gridCreator.pathfinding.GetNode(x,y).SetCharacter(characterPathfinding.gameObject);
-            characterPathfinding.SetTargetPosition(mouseWorldPosition);
-            //Debug.Log("VAR222"+ gridCreator.pathfinding.GetNode(x,y).GetCharacter().gameObject.name);;
-        }*/
-
-        if (soldierUret)
-        {
-            /*soldierUret = false;
-
-           /// soldier created method set
-
-            Vector3 createdPos = Pathfinding.Instance.GetNode(4, 5)
-                .GetWorldPosition( Pathfinding.Instance.grid.GetCellSize(), Vector3.zero);
-            var soldier = Instantiate(characterPathfinding.gameObject, createdPos
-                , Quaternion.identity);
-            gridCreator.pathfinding.GetNode(4,5).SetCharacter(characterPathfinding.gameObject,BuildingManager.Instance.GetActiveBuildingSo());
-            Debug.Log("asdasassa"+gridCreator.pathfinding.GetNode(4,5).GetCharacter().name);*/
-            /*Vector3 placedObjectWorldPosition =   gridCreator.pathfinding.GetNode(25,35);
-            var soldier = Instantiate(characterPathfinding.gameObject,placedObjectWorldPosition
-                , Quaternion.identity);//hatalııı*/
+            Pathfinding.Instance.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
+            List<PathNode> path = Pathfinding.Instance.FindPath(0, 0, x, y);
+            if (path != null) {
+                for (int i=0; i<path.Count - 1; i++) {
+                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i+1].x, path[i+1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
+                }
+            }
+            CharacterPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
         }
-       
-    }
+        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
+            GridCreator.Instance.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
+            BuildingSO tempSO = GridCreator.Instance.pathfinding.GetNode(x, z).GetBuilding();
+            
+            if (tempSO != null )
+            {
+                if (GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter()!=null)
+                {
+                    CharacterPathfindingMovementHandler =
+                        GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter().gameObject.GetComponent<CharacterPathfindingMovementHandler>();
+                }
+               
+                Debug.Log("move" + CharacterPathfindingMovementHandler);
+                InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
+                    tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
+                Debug.Log("VAR   "+GridCreator.Instance.pathfinding.GetNode(x,z).GetBuilding());
+                
+            }
+            
+          
 
-   
+        }
+    }
     
 }
