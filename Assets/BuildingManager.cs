@@ -36,7 +36,11 @@ public class BuildingManager : MonoBehaviour
     {
         return buildingSo;
     }
-    
+
+    public void ClearBuildingSO()
+    {
+        buildingSo = null;
+    }
     
     public void DeselectGhostObj() {
         RefreshSelectedGhost();

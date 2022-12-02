@@ -59,7 +59,7 @@ public class GridBuilding : MonoBehaviour
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform,BuildingManager.Instance.GetActiveBuildingSo());
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetIsWalkable(!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable);//inşa edilen alan hareket edilmemz hale getirildi
                 }
-
+                //BuildingManager.Instance.ClearBuildingSO();
               
                
             }
@@ -72,6 +72,8 @@ public class GridBuilding : MonoBehaviour
             Debug.Log("yyyy"+GridCreator.pathfinding.GetNode(x, z).CanCharacter());
            
         }
+
+       
 
         if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {

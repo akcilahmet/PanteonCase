@@ -76,6 +76,13 @@ public class PathNode {
         this.buildSo = buildingSo;
         grid.TriggerGridObjectChanged(x, y);
     }
+
+    public void ClearCharacter()
+    {
+        this.character = null;
+        this.buildSo = null;
+        grid.TriggerGridObjectChanged(x, y);
+    }
     public GameObject GetCharacter()
     {
         if (this.character != null)

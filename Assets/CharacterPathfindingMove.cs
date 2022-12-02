@@ -8,7 +8,27 @@ using UnityEngine.EventSystems;
 public class CharacterPathfindingMove : MonoBehaviour
 {
     public CharacterPathfindingMovementHandler CharacterPathfindingMovementHandler;
+    public Vector2 selectedSoldierGridXY;
+    #region Singleton
 
+    public static CharacterPathfindingMove Instance { get; private set; }
+    
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("EXTRA : " + this + "  SCRIPT DETECTED RELATED GAME OBJ DESTROYED");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+      
+        
+    }
+
+    #endregion
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
@@ -20,14 +40,22 @@ public class CharacterPathfindingMove : MonoBehaviour
                     Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i+1].x, path[i+1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
                 }
             }
-            CharacterPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
+
+            if (CharacterPathfindingMovementHandler != null)
+            {
+                CharacterPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
+                GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( CharacterPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveBuildingSo());
+                GridCreator.Instance.pathfinding.GetNode((int)selectedSoldierGridXY.x,(int)selectedSoldierGridXY.y).ClearCharacter();
+            }
+               
+
         }
         if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
             GridCreator.Instance.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
             BuildingSO tempSO = GridCreator.Instance.pathfinding.GetNode(x, z).GetBuilding();
-            
+            selectedSoldierGridXY = new Vector2(x, z);
             if (tempSO != null )
             {
                 if (GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter()!=null)
@@ -47,5 +75,6 @@ public class CharacterPathfindingMove : MonoBehaviour
 
         }
     }
+
     
 }

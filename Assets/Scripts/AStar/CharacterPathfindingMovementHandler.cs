@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore;
 using Utils;
 
 public class CharacterPathfindingMovementHandler : MonoBehaviour {
@@ -34,7 +35,8 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
                 currentPathIndex++;
                 if (currentPathIndex >= pathVectorList.Count) {
                     StopMoving();
-                  
+                    CharacterPathfindingMove.Instance.CharacterPathfindingMovementHandler = null;
+
                 }
             }
             Debug.Log("bbbbbbbbbbbbbbbbb");
@@ -43,8 +45,11 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
     }
 
     private void StopMoving() {
+        Debug.Log("hedefe ulasıldı");//hedefe ulasınca 
         pathVectorList = null;
     }
+
+  
 
     public Vector3 GetPosition() {
         return transform.position;
