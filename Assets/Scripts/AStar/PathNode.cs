@@ -19,7 +19,7 @@ public class PathNode {
     public BuildingSO buildSo;
     public PathNode cameFromNode;
 
-    public GameObject character;
+    public List<Transform> characterList=new List<Transform>();
     public PathNode(Grid<PathNode> grid, int x, int y) {
         this.grid = grid;
         this.x = x;
@@ -70,24 +70,30 @@ public class PathNode {
     
     
 
-    public void SetCharacter(GameObject charecter,BuildingSO buildingSo)
+    public void SetCharacter(GameObject newCharacter,BuildingSO buildingSo)
     {
-        this.character = charecter;
+       
+        characterList.Add(newCharacter.transform);
         this.buildSo = buildingSo;
         grid.TriggerGridObjectChanged(x, y);
+        CharacterPathfindingMove.Instance.soldiers.Add(newCharacter);
     }
 
     public void ClearCharacter()
     {
-        this.character = null;
-        this.buildSo = null;
+        this.characterList.RemoveAt(characterList.Count-1);
+        if (characterList.Count <= 0)
+        {
+            this.buildSo = null;
+        }
+        
         grid.TriggerGridObjectChanged(x, y);
     }
-    public GameObject GetCharacter()
+    public Transform GetCharacter()
     {
-        if (this.character != null)
+        if (this.characterList.Count>0)
         {
-            return this.character;
+            return this.characterList[characterList.Count-1];
         }
 
         return null;
@@ -95,7 +101,7 @@ public class PathNode {
 
     public bool CanCharacter()
     {
-        return character == null;
+        return characterList.Count == 0;
     }
 
     public Vector3 GetWorldPosition(float cellSize,Vector3 originPosition) {

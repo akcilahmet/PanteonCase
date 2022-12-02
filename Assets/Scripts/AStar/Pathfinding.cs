@@ -10,8 +10,8 @@ public class Pathfinding {
     public static Pathfinding Instance { get; private set; }
 
     public Grid<PathNode> grid;
-    public List<PathNode> openList;
-    public List<PathNode> closedList;
+    private List<PathNode> openList;
+    private List<PathNode> closedList;
    
     public Pathfinding(int width, int height,int cellSize, Vector3 originPos) {
         Instance = this;

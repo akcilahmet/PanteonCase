@@ -49,6 +49,7 @@ public class ProduceSoldiers : MonoBehaviour
         var soldier = Instantiate(soldierType.gameObject, createdPos
             , Quaternion.identity);
         GridCreator.Instance.pathfinding.GetNode(4,5).SetCharacter(soldier.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
+        Debug.Log("list   " +  GridCreator.Instance.pathfinding.GetNode(4, 5).characterList.Count);
         soldierProduceTimerStart = true;
 
     }

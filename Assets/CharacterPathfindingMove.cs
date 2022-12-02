@@ -9,6 +9,7 @@ public class CharacterPathfindingMove : MonoBehaviour
 {
     public CharacterPathfindingMovementHandler CharacterPathfindingMovementHandler;
     public Vector2 selectedSoldierGridXY;
+    public List<GameObject> soldiers;
     #region Singleton
 
     public static CharacterPathfindingMove Instance { get; private set; }
@@ -63,6 +64,7 @@ public class CharacterPathfindingMove : MonoBehaviour
                 {
                     CharacterPathfindingMovementHandler =
                         GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter().gameObject.GetComponent<CharacterPathfindingMovementHandler>();
+                    Debug.Log("soldier list   " +  GridCreator.Instance.pathfinding.GetNode(x, z).characterList.Count);
                 }
                
                 Debug.Log("move" + CharacterPathfindingMovementHandler);
