@@ -48,7 +48,7 @@ public class ProduceSoldiers : MonoBehaviour
             .GetWorldPosition( Pathfinding.Instance.grid.GetCellSize(), Vector3.zero);
         var soldier = Instantiate(soldierType.gameObject, createdPos
             , Quaternion.identity);
-        GridCreator.Instance.pathfinding.GetNode(4,5).SetCharacter(soldier.gameObject,BuildingManager.Instance.GetActiveBuildingSo());
+        GridCreator.Instance.pathfinding.GetNode(4,5).SetCharacter(soldier.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
         soldierProduceTimerStart = true;
 
     }

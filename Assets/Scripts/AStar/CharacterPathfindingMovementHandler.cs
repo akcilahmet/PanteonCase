@@ -35,7 +35,7 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
                 currentPathIndex++;
                 if (currentPathIndex >= pathVectorList.Count) {
                     StopMoving();
-                    CharacterPathfindingMove.Instance.CharacterPathfindingMovementHandler = null;
+                    CharacterPathfindingMove.Instance.ClearCharacterPathfinding();
 
                 }
             }

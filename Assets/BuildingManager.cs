@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour
 {
     public BuildingSO buildingSo;
+    public BuildingSO oldBuildingSO;
     public delegate void BuildGhost();
     public event BuildGhost ghostEvent;
 
@@ -32,14 +33,29 @@ public class BuildingManager : MonoBehaviour
     #endregion
 
 
+  
     public BuildingSO GetActiveBuildingSo()
     {
         return buildingSo;
+    } 
+    public BuildingSO GetActiveOldBuildingSo()
+    {
+        return oldBuildingSO;
+    }
+    public BuildingSO SetGetActiveBuildingSo(BuildingSO buildingSo)
+    {
+        this.buildingSo= buildingSo;
+        this.oldBuildingSO = buildingSo;
+        return this.buildingSo;
     }
 
     public void ClearBuildingSO()
     {
         buildingSo = null;
+    } 
+    public void ClearOldBuildingSO()
+    {
+        oldBuildingSO = null;
     }
     
     public void DeselectGhostObj() {

@@ -35,9 +35,9 @@ public class ProductionMenuItem : MonoBehaviour
             InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
                 buildingSO.typeOfSoldierProducedSprite,buildingSO.typeOfSoldierName);
            
-            BuildingManager.Instance.buildingSo = buildingSO;
+            BuildingManager.Instance.SetGetActiveBuildingSo(buildingSO);
             BuildingManager.Instance.DeselectGhostObj();
-            return BuildingManager.Instance.buildingSo ;
+            return BuildingManager.Instance.GetActiveBuildingSo() ;
         }
 
         return null;

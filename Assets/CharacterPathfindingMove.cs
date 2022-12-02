@@ -44,7 +44,7 @@ public class CharacterPathfindingMove : MonoBehaviour
             if (CharacterPathfindingMovementHandler != null)
             {
                 CharacterPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
-                GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( CharacterPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveBuildingSo());
+                GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( CharacterPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
                 GridCreator.Instance.pathfinding.GetNode((int)selectedSoldierGridXY.x,(int)selectedSoldierGridXY.y).ClearCharacter();
             }
                
@@ -58,6 +58,7 @@ public class CharacterPathfindingMove : MonoBehaviour
             selectedSoldierGridXY = new Vector2(x, z);
             if (tempSO != null )
             {
+                Debug.Log("characterselected");
                 if (GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter()!=null)
                 {
                     CharacterPathfindingMovementHandler =
@@ -74,6 +75,11 @@ public class CharacterPathfindingMove : MonoBehaviour
           
 
         }
+    }
+
+    public void ClearCharacterPathfinding()
+    {
+        CharacterPathfindingMovementHandler = null;
     }
 
     
