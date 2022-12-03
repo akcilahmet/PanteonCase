@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97505ae61f90ae4dab0d5ab4e0bf03d, type: 3}
+  m_Name: Barracks9
+  m_EditorClassIdentifier: 
+  name: Barracks3
+  "u\u0131Image": {fileID: 21300000, guid: 3d4b8d692f8732e4eb54e74bcc9376ff, type: 3}
+  typeOfSoldierName: YellowSoldier
+  typeOfSoldierProducedSprite: {fileID: 21300000, guid: d2b1d35503b1f4d4ab01a5673a90ae6d, type: 3}
+  soldierPrefab: {fileID: 7491343633622289123, guid: 901aba0f191116443b5b0696029b2b81, type: 3}
+  prefab: {fileID: 4908679183153965178, guid: b36fdb9b32f46ee4fa6c19423ce69d5c, type: 3}
+  visual: {fileID: 4908679183153965178, guid: b181d80aee30c17459835d6723261111, type: 3}
+  width: 4
+  height: 4
