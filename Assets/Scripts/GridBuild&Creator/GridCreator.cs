@@ -5,7 +5,7 @@ using UnityEngine;
 using Utils;
 public class GridCreator : MonoBehaviour
 {
-    
+    public List<Vector2> walkableGridList = new List<Vector2>();
     public int width;
     public int height;
     public int cellSize;
@@ -42,6 +42,16 @@ public class GridCreator : MonoBehaviour
         pathfindingDebugStepVisual.Setup(pathfinding.GetGrid());
         pathfindingVisual.SetGrid(pathfinding.GetGrid());
         
+    }
+
+
+    public void AddGridWalkableList(Vector2 addPoint)
+    {
+        walkableGridList.Add(addPoint);
+    } 
+    public void RemoveGridWalkableList(Vector2 addPoint)
+    {
+        walkableGridList.Remove(addPoint);
     }
 
    

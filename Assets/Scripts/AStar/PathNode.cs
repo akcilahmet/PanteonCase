@@ -20,11 +20,13 @@ public class PathNode {
     public PathNode cameFromNode;
 
     public List<Transform> characterList=new List<Transform>();
+    
     public PathNode(Grid<PathNode> grid, int x, int y) {
         this.grid = grid;
         this.x = x;
         this.y = y;
         isWalkable = true;
+        GridCreator.Instance.AddGridWalkableList(new Vector2(x,y));
         build = null;
     }
 
@@ -34,6 +36,7 @@ public class PathNode {
 
     public void SetIsWalkable(bool isWalkable) {
         this.isWalkable = isWalkable;
+        GridCreator.Instance.RemoveGridWalkableList(new Vector2(x,y));
         grid.TriggerGridObjectChanged(x, y);
     }  
     public void SetBuilding(Transform transform,BuildingSO buildingSo) {
@@ -76,7 +79,6 @@ public class PathNode {
         characterList.Add(newCharacter.transform);
         this.buildSo = buildingSo;
         grid.TriggerGridObjectChanged(x, y);
-        CharacterPathfindingMove.Instance.soldiers.Add(newCharacter);
     }
 
     public void ClearCharacter()

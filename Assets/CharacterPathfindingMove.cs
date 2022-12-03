@@ -9,7 +9,6 @@ public class CharacterPathfindingMove : MonoBehaviour
 {
     public CharacterPathfindingMovementHandler CharacterPathfindingMovementHandler;
     public Vector2 selectedSoldierGridXY;
-    public List<GameObject> soldiers;
     #region Singleton
 
     public static CharacterPathfindingMove Instance { get; private set; }

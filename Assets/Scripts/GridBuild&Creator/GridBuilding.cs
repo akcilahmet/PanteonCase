@@ -40,6 +40,11 @@ public class GridBuilding : MonoBehaviour
                     canBuild = false;
                     break;
                 }
+                if (!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable)
+                {
+                    canBuild = false;
+                    break;
+                }
               
             }
             if (canBuild   && BuildingManager.Instance.GetActiveBuildingSo().prefab!=null)
@@ -47,7 +52,7 @@ public class GridBuilding : MonoBehaviour
               
                 var build=Instantiate(BuildingManager.Instance.GetActiveBuildingSo().prefab,placedObjectWorldPosition,quaternion.identity);
                 ProduceSoldiers produceSoldiers = build.gameObject.GetComponent<ProduceSoldiers>();
-                produceSoldiers.soldierType = BuildingManager.Instance.GetActiveBuildingSo().soldierPrefab.gameObject;
+                produceSoldiers.SetSoldier(BuildingManager.Instance.GetActiveBuildingSo().soldierPrefab.gameObject);
                 produceSoldiers.SoldierProduceTimerStart = true;
                 foreach (var VARIABLE in buildObjectgridPosList)
                 {
