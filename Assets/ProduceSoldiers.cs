@@ -23,6 +23,7 @@ public class ProduceSoldiers : MonoBehaviour
 
     [Header("SoldierCreatPoint")]
     private int randomGridIndexGet;
+    private bool randomGridPointSet;
     private Vector2 randomSoldierCreatedGridPoints;
     public bool SoldierProduceTimerStart
     {
@@ -33,8 +34,7 @@ public class ProduceSoldiers : MonoBehaviour
     private void Start()
     {
         firsTime = time;
-        randomGridIndexGet = Random.Range(0, GridCreator.Instance.walkableGridList.Count);
-        randomSoldierCreatedGridPoints = GridCreator.Instance.walkableGridList[randomGridIndexGet];
+        
     }
 
     private void Update()
@@ -63,6 +63,14 @@ public class ProduceSoldiers : MonoBehaviour
 
     void SoldierProduce()
     {
+        if (!randomGridPointSet)
+        {
+            randomGridPointSet = true;
+            randomGridIndexGet = Random.Range(0, GridCreator.Instance.walkableGridList.Count);
+            randomSoldierCreatedGridPoints = GridCreator.Instance.walkableGridList[randomGridIndexGet];
+        }
+       
+        
         Vector3 createdPos = Pathfinding.Instance.GetNode((int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y)
             .GetWorldPositionSoldier( (int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y,Pathfinding.Instance.grid.GetCellSize())+new Vector3(Pathfinding.Instance.grid.GetCellSize(),Pathfinding.Instance.grid.GetCellSize())*.5f;
         
