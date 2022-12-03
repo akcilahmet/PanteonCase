@@ -10,7 +10,7 @@ public class BuildingManager : MonoBehaviour
     public delegate void BuildGhost();
     public event BuildGhost ghostEvent;
 
-    public List<ProduceSoldiers> BarrackProduceSoldiersList = new List<ProduceSoldiers>();
+    public List<GameObject> PowerPlantList = new List<GameObject>();
   
     #region Singleton
 
@@ -67,26 +67,26 @@ public class BuildingManager : MonoBehaviour
     }
     
     
-    public int GetBarrackListCount()
+    public int GetPowerPlantListCount()
     {
-        return BarrackProduceSoldiersList.Count;
+        return PowerPlantList.Count;
     }
 
-    public void AddBarrackProduceSoldiersList(ProduceSoldiers produceSoldiers,BuildingSO buildingSo)
+    public void AddPowerPlantList(GameObject produceSoldiers,BuildingSO buildingSo)
     {
-        if (buildingSo.type == BuildingSO.Type.barrack)
+        if (buildingSo.type == BuildingSO.Type.powerPlant)
         {
-            BarrackProduceSoldiersList.Add(produceSoldiers);
+            PowerPlantList.Add(produceSoldiers);
         }
        
     } 
-    public void RemoveBarrackProduceSoldiersList(ProduceSoldiers produceSoldiers)
+    public void RemovePowerPlantList(GameObject produceSoldiers)
     {
-        BarrackProduceSoldiersList.Remove(produceSoldiers);
+        PowerPlantList.Remove(produceSoldiers);
     }
 
-    public List<ProduceSoldiers> GetBarrackProduceSoldiersList()
+    public List<GameObject> GetPowerPlantList()
     {
-        return BarrackProduceSoldiersList;
+        return PowerPlantList;
     }
 }

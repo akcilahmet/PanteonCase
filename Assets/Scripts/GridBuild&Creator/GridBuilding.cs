@@ -56,10 +56,8 @@ public class GridBuilding : MonoBehaviour
                     ProduceSoldiers produceSoldiers = build.gameObject.GetComponent<ProduceSoldiers>();
                     produceSoldiers.SetSoldier(BuildingManager.Instance.GetActiveBuildingSo().soldierPrefab.gameObject);
                     
-                
-                    BuildingManager.Instance.AddBarrackProduceSoldiersList(produceSoldiers,BuildingManager.Instance.GetActiveBuildingSo());
                 }
-             
+                BuildingManager.Instance.AddPowerPlantList(build.gameObject,BuildingManager.Instance.GetActiveBuildingSo());
                 
                
                 foreach (var VARIABLE in buildObjectgridPosList)

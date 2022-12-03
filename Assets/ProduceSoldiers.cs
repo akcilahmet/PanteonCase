@@ -12,7 +12,12 @@ public class ProduceSoldiers : MonoBehaviour
     [Header("SoldierCreatedTime")]
     [SerializeField] private float time = 5f;
     private float firsTime ;
-    
+    private bool produceStart;
+    public bool ProduceStart
+    {
+        get { return produceStart; }
+        set { produceStart = value; }
+    }
     private GameObject soldierGameObject;
     private bool soldierProduceTimerStart;
 
@@ -34,16 +39,20 @@ public class ProduceSoldiers : MonoBehaviour
 
     private void Update()
     {
-        if (soldierProduceTimerStart)
+        if (ProduceStart)
         {
-            time -= Time.deltaTime;
-            if (time <= 0)
+            if (!soldierProduceTimerStart)
             {
-                soldierProduceTimerStart = false;
-                time = firsTime;
-                readyProduSoldier = true;
+                time -= Time.deltaTime;
+                if (time <= 0)
+                {
+                    soldierProduceTimerStart = true;
+                    time = firsTime;
+                    readyProduSoldier = true;
+                }
             }
         }
+       
         if (readyProduSoldier)
         {
             readyProduSoldier = false;
@@ -63,7 +72,7 @@ public class ProduceSoldiers : MonoBehaviour
         GridCreator.Instance.pathfinding.GetNode((int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y).SetCharacter(soldier.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
         GridCreator.Instance.pathfinding.GetNode((int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y)
             .SetIsWalkable(!GridCreator.Instance.pathfinding.GetNode((int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y).isWalkable);
-        soldierProduceTimerStart = true;
+        soldierProduceTimerStart = false;
 
     }
 
