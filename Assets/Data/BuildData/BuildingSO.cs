@@ -14,7 +14,14 @@ public class BuildingSO : ScriptableObject
     public Transform visual;
     public int width;
     public int height;
-        
+    public Type type;
+    public enum Type
+    {
+        barrack,
+        powerPlant
+    }
+    
+    
     public enum Dir
     {
         Down,

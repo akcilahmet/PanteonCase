@@ -10,6 +10,7 @@ public class BuildingManager : MonoBehaviour
     public delegate void BuildGhost();
     public event BuildGhost ghostEvent;
 
+    public List<ProduceSoldiers> BarrackProduceSoldiersList = new List<ProduceSoldiers>();
   
     #region Singleton
 
@@ -63,5 +64,29 @@ public class BuildingManager : MonoBehaviour
     }
     private void RefreshSelectedGhost() {
         ghostEvent?.Invoke();
+    }
+    
+    
+    public int GetBarrackListCount()
+    {
+        return BarrackProduceSoldiersList.Count;
+    }
+
+    public void AddBarrackProduceSoldiersList(ProduceSoldiers produceSoldiers,BuildingSO buildingSo)
+    {
+        if (buildingSo.type == BuildingSO.Type.barrack)
+        {
+            BarrackProduceSoldiersList.Add(produceSoldiers);
+        }
+       
+    } 
+    public void RemoveBarrackProduceSoldiersList(ProduceSoldiers produceSoldiers)
+    {
+        BarrackProduceSoldiersList.Remove(produceSoldiers);
+    }
+
+    public List<ProduceSoldiers> GetBarrackProduceSoldiersList()
+    {
+        return BarrackProduceSoldiersList;
     }
 }

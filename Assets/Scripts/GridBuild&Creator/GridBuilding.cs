@@ -10,7 +10,7 @@ public class GridBuilding : MonoBehaviour
 {
     
     private GridCreator GridCreator;
-    
+   
 
     private void Start()
     {
@@ -51,9 +51,17 @@ public class GridBuilding : MonoBehaviour
             {
               
                 var build=Instantiate(BuildingManager.Instance.GetActiveBuildingSo().prefab,placedObjectWorldPosition,quaternion.identity);
-                ProduceSoldiers produceSoldiers = build.gameObject.GetComponent<ProduceSoldiers>();
-                produceSoldiers.SetSoldier(BuildingManager.Instance.GetActiveBuildingSo().soldierPrefab.gameObject);
-                produceSoldiers.SoldierProduceTimerStart = true;
+                if (build.gameObject.GetComponent<ProduceSoldiers>() != null)
+                {
+                    ProduceSoldiers produceSoldiers = build.gameObject.GetComponent<ProduceSoldiers>();
+                    produceSoldiers.SetSoldier(BuildingManager.Instance.GetActiveBuildingSo().soldierPrefab.gameObject);
+                    
+                
+                    BuildingManager.Instance.AddBarrackProduceSoldiersList(produceSoldiers,BuildingManager.Instance.GetActiveBuildingSo());
+                }
+             
+                
+               
                 foreach (var VARIABLE in buildObjectgridPosList)
                 {
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform,BuildingManager.Instance.GetActiveBuildingSo());
@@ -104,6 +112,8 @@ public class GridBuilding : MonoBehaviour
             return mousePosition;
         }
     }
-    
+
+
+  
  
 }
