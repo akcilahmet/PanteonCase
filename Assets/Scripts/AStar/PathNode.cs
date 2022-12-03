@@ -109,4 +109,8 @@ public class PathNode {
     public Vector3 GetWorldPosition(float cellSize,Vector3 originPosition) {
         return new Vector3(x, y) * cellSize + originPosition;
     }
+    
+    public Vector3 GetWorldPositionSoldier(int x, int y,float cellSize) {
+        return new Vector3(x, y) * cellSize ;
+    }
 }

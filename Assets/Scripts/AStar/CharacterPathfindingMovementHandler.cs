@@ -39,13 +39,12 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
 
                 }
             }
-            Debug.Log("bbbbbbbbbbbbbbbbb");
+          
 
         } 
     }
 
     private void StopMoving() {
-        Debug.Log("hedefe ulasıldı");//hedefe ulasınca 
         pathVectorList = null;
     }
 
@@ -56,8 +55,6 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
     }
 
     public void SetTargetPosition(Vector3 targetPosition) {
-        Debug.Log("bbbbbbbbbbbbbbbbb");
-
         currentPathIndex = 0;
         pathVectorList = Pathfinding.Instance.FindPath(GetPosition(), targetPosition);
 

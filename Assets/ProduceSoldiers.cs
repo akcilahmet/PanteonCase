@@ -55,7 +55,7 @@ public class ProduceSoldiers : MonoBehaviour
     void SoldierProduce()
     {
         Vector3 createdPos = Pathfinding.Instance.GetNode((int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y)
-            .GetWorldPosition( Pathfinding.Instance.grid.GetCellSize(), Vector3.zero);
+            .GetWorldPositionSoldier( (int)randomSoldierCreatedGridPoints.x, (int)randomSoldierCreatedGridPoints.y,Pathfinding.Instance.grid.GetCellSize())+new Vector3(Pathfinding.Instance.grid.GetCellSize(),Pathfinding.Instance.grid.GetCellSize())*.5f;
         
         var soldier = Instantiate(soldierGameObject.gameObject, createdPos
             , Quaternion.identity);
