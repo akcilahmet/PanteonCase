@@ -21,3 +21,4 @@ MonoBehaviour:
   visual: {fileID: 4908679183153965178, guid: 25ebba66c2413f5408f2742e3ff1bda1, type: 3}
   width: 2
   height: 3
+  type: 1
