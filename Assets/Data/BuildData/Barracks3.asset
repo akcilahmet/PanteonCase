@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Barracks3
   m_EditorClassIdentifier: 
   name: Barracks3
-  "u\u0131Image": {fileID: 21300000, guid: 3d4b8d692f8732e4eb54e74bcc9376ff, type: 3}
+  "u\u0131Image": {fileID: 21300000, guid: bfa5bf20a83d1f14e9117e0d2c5ded54, type: 3}
   typeOfSoldierName: YellowSoldier
   "\u0131nformationSoldierObj": {fileID: 2362756260617121759, guid: a1d3d186c8fdeab4c8ce210c2d2ccbe6, type: 3}
   soldierPrefab: {fileID: 7491343633622289123, guid: 901aba0f191116443b5b0696029b2b81, type: 3}
-  buildingObj: {fileID: 4908679183153965178, guid: b36fdb9b32f46ee4fa6c19423ce69d5c, type: 3}
+  buildingObj: {fileID: 6422494873667540967, guid: 98fe424598382be4192a93956f4262b3, type: 3}
   visual: {fileID: 4908679183153965178, guid: b181d80aee30c17459835d6723261111, type: 3}
   width: 4
   height: 4

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97505ae61f90ae4dab0d5ab4e0bf03d, type: 3}
   m_Name: Barracks5
   m_EditorClassIdentifier: 
-  name: Barracks1
-  "u\u0131Image": {fileID: 21300000, guid: ae8a5bdf1b3a4f646b47c8aeebd9d598, type: 3}
+  name: Barracks5
+  "u\u0131Image": {fileID: 21300000, guid: 17addebf0197b984b9b3b6bb1df29198, type: 3}
   typeOfSoldierName: RedSoldier
   "\u0131nformationSoldierObj": {fileID: 5173356737643911620, guid: bce5d993dfc0517439bc0a050c03e969, type: 3}
   soldierPrefab: {fileID: 7491343633622289123, guid: 901aba0f191116443b5b0696029b2b81, type: 3}
-  buildingObj: {fileID: 4908679183153965178, guid: b36fdb9b32f46ee4fa6c19423ce69d5c, type: 3}
+  buildingObj: {fileID: 3164780149777020402, guid: 6c7ff0efa8e8cf14caa587a77b3d2d8c, type: 3}
   visual: {fileID: 4908679183153965178, guid: b181d80aee30c17459835d6723261111, type: 3}
   width: 4
   height: 4
