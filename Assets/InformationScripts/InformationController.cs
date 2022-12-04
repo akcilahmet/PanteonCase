@@ -13,7 +13,8 @@ public class InformationController : MonoBehaviour
     
     public Image InformationDownImage;
     public TMP_Text InformationDowntext;
-
+    
+    public Transform ınformationPanelRawImageSoldierCreatedPoint;
 
     #region Singleton
 
@@ -36,7 +37,7 @@ public class InformationController : MonoBehaviour
 
     #endregion
 
-    public void SetInformationPanel(Sprite upImageSprite,string upTextString,Sprite downImageSprite,string downTextString)
+    public void SetInformationPanel(Sprite upImageSprite,string upTextString,GameObject ınformationSoldier,string downTextString)
     {
         DOScale(InformationUpImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"one");
         DOScale(InformationDownImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"two");
@@ -44,14 +45,19 @@ public class InformationController : MonoBehaviour
         InformationUpImage.sprite = upImageSprite;
         InformationUptext.text = upTextString.ToString();
         
-        InformationDownImage.sprite = downImageSprite;
         InformationDowntext.text = downTextString.ToString();
-        if (InformationDownImage.sprite == null)
+        if (ınformationSoldier.gameObject == null)
         {
             InformationDownImage.gameObject.SetActive(false);
+            foreach (Transform child in ınformationPanelRawImageSoldierCreatedPoint.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
         else
         {
+            var go = Instantiate(ınformationSoldier, ınformationPanelRawImageSoldierCreatedPoint.transform.position, Quaternion.identity);
+            go.transform.SetParent(ınformationPanelRawImageSoldierCreatedPoint);
             InformationDownImage.gameObject.SetActive(true);
 
         }

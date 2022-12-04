@@ -61,24 +61,24 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
 
     public void SetTargetPosition(Vector3 targetPosition)
     {
-        Debug.Log("target pos "+targetPosition);
-        Debug.Log("target pos not "+transform.position);
-        float dir = targetPosition.x - transform.position.x;
-        Debug.Log("target pos dir "+dir);
-        Vector3 soldierDir = animator.gameObject.transform.localScale;
+        #region Soldier Dir Anim
 
-        if (dir < 0 && soldierDir.x>0)
-        {
-            soldierDir.x *= -1;
-            animator.gameObject.transform.localScale = soldierDir;
-        }
-        if (dir > 0 && soldierDir.x<0)
-        {
-            soldierDir.x *= -1;
-            animator.gameObject.transform.localScale = soldierDir;
-        }
-       
-        AnimatorState("Run", true);
+            float dir = targetPosition.x - transform.position.x;
+            Vector3 soldierDir = animator.gameObject.transform.localScale;
+
+            if (dir < 0 && soldierDir.x>0)
+            {
+                soldierDir.x *= -1;
+                animator.gameObject.transform.localScale = soldierDir;
+            }
+            if (dir > 0 && soldierDir.x<0)
+            {
+                soldierDir.x *= -1;
+                animator.gameObject.transform.localScale = soldierDir;
+            }
+            AnimatorState("Run", true);
+        #endregion
+        
         currentPathIndex = 0;
         pathVectorList = Pathfinding.Instance.FindPath(GetPosition(), targetPosition);
 

@@ -8,9 +8,9 @@ public class BuildingSO : ScriptableObject
     public string name;
     public Sprite uıImage;
     public string typeOfSoldierName;
-    public Sprite typeOfSoldierProducedSprite;
+    public GameObject ınformationSoldierObj;
     public Transform soldierPrefab;
-    public Transform prefab;
+    public Transform buildingObj;
     public Transform visual;
     public int width;
     public int height;

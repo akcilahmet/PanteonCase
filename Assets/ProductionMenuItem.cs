@@ -33,7 +33,7 @@ public class ProductionMenuItem : MonoBehaviour
             Debug.Log(buildingSO.name);
             
             InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
-                buildingSO.typeOfSoldierProducedSprite,buildingSO.typeOfSoldierName);
+                buildingSO.ınformationSoldierObj,buildingSO.typeOfSoldierName);
            
             BuildingManager.Instance.SetGetActiveBuildingSo(buildingSO);
             BuildingManager.Instance.DeselectGhostObj();

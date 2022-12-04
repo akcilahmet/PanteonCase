@@ -68,7 +68,7 @@ public class CharacterPathfindingMove : MonoBehaviour
                
                 Debug.Log("move" + CharacterPathfindingMovementHandler);
                 InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
-                    tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
+                    tempSO.ınformationSoldierObj,tempSO.typeOfSoldierName);
                 Debug.Log("VAR   "+GridCreator.Instance.pathfinding.GetNode(x,z).GetBuilding());
                 
             }

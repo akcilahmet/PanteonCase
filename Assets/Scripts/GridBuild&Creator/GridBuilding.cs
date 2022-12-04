@@ -47,10 +47,10 @@ public class GridBuilding : MonoBehaviour
                 }
               
             }
-            if (canBuild   && BuildingManager.Instance.GetActiveBuildingSo().prefab!=null)
+            if (canBuild   && BuildingManager.Instance.GetActiveBuildingSo().buildingObj!=null)
             {
               
-                var build=Instantiate(BuildingManager.Instance.GetActiveBuildingSo().prefab,placedObjectWorldPosition,quaternion.identity);
+                var build=Instantiate(BuildingManager.Instance.GetActiveBuildingSo().buildingObj,placedObjectWorldPosition,quaternion.identity);
                 if (build.gameObject.GetComponent<ProduceSoldiers>() != null)
                 {
                     ProduceSoldiers produceSoldiers = build.gameObject.GetComponent<ProduceSoldiers>();
@@ -85,7 +85,7 @@ public class GridBuilding : MonoBehaviour
             if (tempSO != null)
             {
                 InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
-                    tempSO.typeOfSoldierProducedSprite,tempSO.typeOfSoldierName);
+                    tempSO.ınformationSoldierObj,tempSO.typeOfSoldierName);
                 Debug.Log("VAR   "+GridCreator.pathfinding.GetNode(x,z).GetBuilding());
                 
             }
