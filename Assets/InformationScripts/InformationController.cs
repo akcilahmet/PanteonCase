@@ -39,6 +39,8 @@ public class InformationController : MonoBehaviour
 
     public void SetInformationPanel(Sprite upImageSprite,string upTextString,GameObject ınformationSoldier,string downTextString)
     {
+        ClearInformationPanelRawImageSoldierCreatedPoint();
+        
         DOScale(InformationUpImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"one");
         DOScale(InformationDownImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"two");
         
@@ -49,10 +51,9 @@ public class InformationController : MonoBehaviour
         if (ınformationSoldier.gameObject == null)
         {
             InformationDownImage.gameObject.SetActive(false);
-            foreach (Transform child in ınformationPanelRawImageSoldierCreatedPoint.transform)
-            {
-                Destroy(child.gameObject);
-            }
+            
+            ClearInformationPanelRawImageSoldierCreatedPoint();
+
         }
         else
         {
@@ -72,7 +73,14 @@ public class InformationController : MonoBehaviour
             temp.transform.DOScale(originVec, .5f).SetId(id);
         })).SetId(id);
     }
-        
+
+    void ClearInformationPanelRawImageSoldierCreatedPoint()
+    {
+        foreach (Transform child in ınformationPanelRawImageSoldierCreatedPoint.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
    
 
    
