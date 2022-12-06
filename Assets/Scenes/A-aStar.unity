@@ -3698,7 +3698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a861795e7cd74b418e3b0e02523e565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterPathfindingMovementHandler: {fileID: 0}
+  soldierPathfindingMovementHandler: {fileID: 0}
   selectedSoldierGridXY: {x: 0, y: 0}
 --- !u!1 &1258681072
 GameObject:
