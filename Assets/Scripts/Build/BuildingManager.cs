@@ -9,7 +9,6 @@ public class BuildingManager : MonoBehaviour
     public BuildingSO oldBuildingSO;
     public delegate void BuildGhost();
     public event BuildGhost ghostEvent;
-
     public List<GameObject> PowerPlantList = new List<GameObject>();
   
     #region Singleton
@@ -32,9 +31,7 @@ public class BuildingManager : MonoBehaviour
     }
 
     #endregion
-
-
-  
+    
     public BuildingSO GetActiveBuildingSo()
     {
         return buildingSo;

@@ -47,7 +47,6 @@ public class SoldierPathfindingMove : MonoBehaviour
                 GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( soldierPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
                 GridCreator.Instance.pathfinding.GetNode((int)selectedSoldierGridXY.x,(int)selectedSoldierGridXY.y).ClearCharacter();
             }
-               
 
         }
         if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
@@ -58,26 +57,21 @@ public class SoldierPathfindingMove : MonoBehaviour
             selectedSoldierGridXY = new Vector2(x, z);
             if (tempSO != null )
             {
-                Debug.Log("characterselected");
+               
                 if (GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter()!=null)
                 {
                     soldierPathfindingMovementHandler =
                         GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter().gameObject.GetComponent<SoldierPathfindingMovementHandler>();
-                    Debug.Log("soldier list   " +  GridCreator.Instance.pathfinding.GetNode(x, z).characterList.Count);
                 }
-               
-                Debug.Log("move" + soldierPathfindingMovementHandler);
+                
                 InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
                     tempSO.ınformationSoldierObj,tempSO.typeOfSoldierName);
-                Debug.Log("VAR   "+GridCreator.Instance.pathfinding.GetNode(x,z).GetBuilding());
-                
             }
             
           
 
         }
     }
-
     public void ClearCharacterPathfinding()
     {
         soldierPathfindingMovementHandler = null;

@@ -7,7 +7,6 @@ using UnityEngine.Rendering;
 public class SoldierFeatureAdjustments : MonoBehaviour
 {
    
-
    private void Start()
    {
       foreach (Transform child in transform)

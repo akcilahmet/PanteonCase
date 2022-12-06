@@ -8,10 +8,8 @@ using UnityEngine.EventSystems;
 
 public class GridBuilding : MonoBehaviour
 {
-    
     private GridCreator GridCreator;
-   
-
+    
     private void Start()
     {
         GridCreator = GetComponent<GridCreator>();
@@ -23,8 +21,8 @@ public class GridBuilding : MonoBehaviour
         {
             Vector3 mousePosition = UtilsMethod.GetMouseWorldPosition();
             GridCreator.pathfinding.GetGrid().GetXY(mousePosition, out int x, out int z);
-            Vector3 placedObjectWorldPosition =   GridCreator.pathfinding.GetGrid().GetWorldPosition(x, z);//build objenin inşa edilecek tıklama konumu
-            List<Vector2Int> buildObjectgridPosList= BuildingManager.Instance.GetActiveBuildingSo().GetGridPositionList(new Vector2Int(x, z), BuildingSO.Dir.Down);//build objenin kaplayacağı alanlar listesi
+            Vector3 placedObjectWorldPosition =   GridCreator.pathfinding.GetGrid().GetWorldPosition(x, z);
+            List<Vector2Int> buildObjectgridPosList= BuildingManager.Instance.GetActiveBuildingSo().GetGridPositionList(new Vector2Int(x, z), BuildingSO.Dir.Down);
             bool canBuild = true;
             foreach (var VARIABLE in buildObjectgridPosList)
             {
@@ -63,7 +61,7 @@ public class GridBuilding : MonoBehaviour
                 foreach (var VARIABLE in buildObjectgridPosList)
                 {
                     GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetBuilding(build.transform,BuildingManager.Instance.GetActiveBuildingSo());
-                    GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetIsWalkable(!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable);//inşa edilen alan hareket edilmemz hale getirildi
+                    GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).SetIsWalkable(!GridCreator.pathfinding.GetNode(VARIABLE.x, VARIABLE.y).isWalkable);
                 }
                 BuildingManager.Instance.ClearBuildingSO();
                 
@@ -86,7 +84,7 @@ public class GridBuilding : MonoBehaviour
             {
                 InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
                     tempSO.ınformationSoldierObj,tempSO.typeOfSoldierName);
-                Debug.Log("VAR   "+GridCreator.pathfinding.GetNode(x,z).GetBuilding());
+               
                 
             }
             

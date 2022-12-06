@@ -26,17 +26,12 @@ public class ScrollContent : MonoBehaviour
             rectChild[i]=rectTransform.GetChild(i).GetComponent<RectTransform>();
         }
         
-        //width = rectTransform.rect.width - (2 * horizontalMargin);
         height = rectTransform.rect.height - (2 * verticalMargin);
         
-       // childWidth = rectChild[0].rect.width;
         childHeight = rectChild[0].rect.height;
-
-       
+        
         ContentVertical();
-        
-        
-
+     
     }
 
 

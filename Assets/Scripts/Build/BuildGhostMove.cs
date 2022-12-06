@@ -9,7 +9,7 @@ public class BuildGhostMove : MonoBehaviour
 {
     public GridBuilding _gridBuilding;
     [SerializeField] private Transform ghostObj;
-    [SerializeField] private bool itemSelected;
+   
     private void Start()
     {
         BuildingManager.Instance.ghostEvent += Instance_OnSelectedItemGhost;
@@ -34,7 +34,6 @@ public class BuildGhostMove : MonoBehaviour
         
        
     }
-
     
     private void Instance_OnSelectedItemGhost() {
         GhostBuildCreate();
@@ -42,7 +41,6 @@ public class BuildGhostMove : MonoBehaviour
     }
     void GhostBuildCreate()
     {
-        
         if (BuildingManager.Instance.GetActiveBuildingSo() != null)
         {
             foreach(Transform child in transform)
@@ -51,7 +49,6 @@ public class BuildGhostMove : MonoBehaviour
             }
             ghostObj = Instantiate(BuildingManager.Instance.GetActiveBuildingSo().visual, transform.position, Quaternion.identity);
             ghostObj.transform.SetParent(transform);
-            itemSelected = true;
 
         }
        

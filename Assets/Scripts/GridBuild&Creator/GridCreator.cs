@@ -13,7 +13,7 @@ public class GridCreator : MonoBehaviour
    
     [SerializeField] private PathfindingDebugStepVisual pathfindingDebugStepVisual;
     [SerializeField] private PathfindingVisual pathfindingVisual;
-    //[SerializeField] private CharacterPathfindingMovementHandler characterPathfinding;
+    
     public Pathfinding pathfinding;
   
     #region Singleton
@@ -37,8 +37,8 @@ public class GridCreator : MonoBehaviour
 
     #endregion
     private void Start() {
-        pathfinding = new Pathfinding(width, height,cellSize,createdGridStartPos.position);
         
+        pathfinding = new Pathfinding(width, height,cellSize,createdGridStartPos.position);
         pathfindingDebugStepVisual.Setup(pathfinding.GetGrid());
         pathfindingVisual.SetGrid(pathfinding.GetGrid());
         
