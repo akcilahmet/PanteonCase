@@ -9902,8 +9902,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1927843999
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1995bb333c7b6df48b5227381f3d76f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -24747,6 +24747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6602578975164959063}
   - component: {fileID: 6602578975164959062}
+  - component: {fileID: 8435112649134354604}
   m_Layer: 5
   m_Name: Soldier1
   m_TagString: Untagged
@@ -24783,6 +24784,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3190471801238610400}
+--- !u!114 &8435112649134354604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602578975164959057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42d819f611430d4c974e79b72179044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6602578976227563571
 GameObject:
   m_ObjectHideFlags: 0
@@ -24851,8 +24864,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1927843999
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1995bb333c7b6df48b5227381f3d76f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8862745}
@@ -26689,8 +26702,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8903970267778555193}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1927843999
+  m_SortingLayer: 3
   m_SortingOrder: 200
 --- !u!1 &8919476104164141418
 GameObject:

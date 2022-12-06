@@ -125,8 +125,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70475520845216695}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1927843999
+  m_SortingLayer: 3
   m_SortingOrder: 200
 --- !u!1 &266123297677928330
 GameObject:
@@ -1866,6 +1866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2362756260617121753}
   - component: {fileID: 2362756260617121752}
+  - component: {fileID: -5542956884321322226}
   m_Layer: 5
   m_Name: Soldier3
   m_TagString: Untagged
@@ -1902,6 +1903,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6281947429591320430}
+--- !u!114 &-5542956884321322226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362756260617121759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42d819f611430d4c974e79b72179044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2506895695111284767
 GameObject:
   m_ObjectHideFlags: 0
