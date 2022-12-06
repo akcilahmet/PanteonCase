@@ -17,7 +17,7 @@ MonoBehaviour:
   typeOfSoldierName: Soldier
   "\u0131nformationSoldierObj": {fileID: 2362756260617121759, guid: a1d3d186c8fdeab4c8ce210c2d2ccbe6, type: 3}
   soldierPrefab: {fileID: 7491343633622289123, guid: 901aba0f191116443b5b0696029b2b81, type: 3}
-  buildingObj: {fileID: 7260558253868526779, guid: 2954a10281e378d468f8ef3044f1acbf, type: 3}
+  buildingObj: {fileID: 4456271301015003171, guid: 2954a10281e378d468f8ef3044f1acbf, type: 3}
   visual: {fileID: 4906272740031838544, guid: 6913167ac5dac034fa7474f13dc3b689, type: 3}
   width: 4
   height: 4
