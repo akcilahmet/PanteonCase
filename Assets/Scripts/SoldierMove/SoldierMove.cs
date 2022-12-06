@@ -5,13 +5,13 @@ using UnityEngine;
 using Utils;
 using UnityEngine.EventSystems;
 
-public class SoldierPathfindingMove : MonoBehaviour
+public class SoldierMove : MonoBehaviour
 {
     public SoldierPathfindingMovementHandler soldierPathfindingMovementHandler;
     public Vector2 selectedSoldierGridXY;
     #region Singleton
 
-    public static SoldierPathfindingMove Instance { get; private set; }
+    public static SoldierMove Instance { get; private set; }
     
     private void Awake()
     {

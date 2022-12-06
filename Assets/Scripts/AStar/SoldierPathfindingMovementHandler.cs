@@ -40,7 +40,7 @@ public class SoldierPathfindingMovementHandler : MonoBehaviour {
                     StopMoving();
                     AnimatorState("Run", false);
 
-                    SoldierPathfindingMove.Instance.ClearCharacterPathfinding();
+                    SoldierMove.Instance.ClearCharacterPathfinding();
 
                 }
             }

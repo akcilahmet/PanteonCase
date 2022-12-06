@@ -11,6 +11,7 @@ public class ProduceSoldiers : MonoBehaviour
    
     [Header("SoldierCreatedTime")]
     [SerializeField] private float time = 5f;
+    [SerializeField] private float firsCreatedTime = 3f;
     private float firsTime ;
     private bool produceStart;
     public bool ProduceStart
@@ -34,7 +35,7 @@ public class ProduceSoldiers : MonoBehaviour
     private void Start()
     {
         firsTime = time;
-        
+        time = firsCreatedTime;
     }
 
     private void Update()

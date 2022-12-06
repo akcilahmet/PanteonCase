@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyProduSoldier: 0
   time: 10
+  firsCreatedTime: 3
 --- !u!114 &6447246642441148452
 MonoBehaviour:
   m_ObjectHideFlags: 0

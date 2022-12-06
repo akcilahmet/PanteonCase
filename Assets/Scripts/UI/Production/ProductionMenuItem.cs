@@ -30,7 +30,7 @@ public class ProductionMenuItem : MonoBehaviour
     {
         if (buildingSO != null)
         {
-            Debug.Log(buildingSO.name);
+            
             
             InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
                 buildingSO.ınformationSoldierObj,buildingSO.typeOfSoldierName);
