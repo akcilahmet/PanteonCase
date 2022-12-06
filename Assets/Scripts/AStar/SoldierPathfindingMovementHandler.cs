@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.TextCore;
 using Utils;
 
-public class CharacterPathfindingMovementHandler : MonoBehaviour {
+public class SoldierPathfindingMovementHandler : MonoBehaviour {
 
     private const float speed = 40f;
     private int currentPathIndex;
@@ -40,7 +40,7 @@ public class CharacterPathfindingMovementHandler : MonoBehaviour {
                     StopMoving();
                     AnimatorState("Run", false);
 
-                    CharacterPathfindingMove.Instance.ClearCharacterPathfinding();
+                    SoldierPathfindingMove.Instance.ClearCharacterPathfinding();
 
                 }
             }

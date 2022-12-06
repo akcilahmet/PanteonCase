@@ -5,13 +5,13 @@ using UnityEngine;
 using Utils;
 using UnityEngine.EventSystems;
 
-public class CharacterPathfindingMove : MonoBehaviour
+public class SoldierPathfindingMove : MonoBehaviour
 {
-    public CharacterPathfindingMovementHandler CharacterPathfindingMovementHandler;
+    public SoldierPathfindingMovementHandler soldierPathfindingMovementHandler;
     public Vector2 selectedSoldierGridXY;
     #region Singleton
 
-    public static CharacterPathfindingMove Instance { get; private set; }
+    public static SoldierPathfindingMove Instance { get; private set; }
     
     private void Awake()
     {
@@ -41,10 +41,10 @@ public class CharacterPathfindingMove : MonoBehaviour
                 }
             }
 
-            if (CharacterPathfindingMovementHandler != null)
+            if (soldierPathfindingMovementHandler != null)
             {
-                CharacterPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
-                GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( CharacterPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
+                soldierPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
+                GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( soldierPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
                 GridCreator.Instance.pathfinding.GetNode((int)selectedSoldierGridXY.x,(int)selectedSoldierGridXY.y).ClearCharacter();
             }
                
@@ -61,12 +61,12 @@ public class CharacterPathfindingMove : MonoBehaviour
                 Debug.Log("characterselected");
                 if (GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter()!=null)
                 {
-                    CharacterPathfindingMovementHandler =
-                        GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter().gameObject.GetComponent<CharacterPathfindingMovementHandler>();
+                    soldierPathfindingMovementHandler =
+                        GridCreator.Instance.pathfinding.GetNode(x, z).GetCharacter().gameObject.GetComponent<SoldierPathfindingMovementHandler>();
                     Debug.Log("soldier list   " +  GridCreator.Instance.pathfinding.GetNode(x, z).characterList.Count);
                 }
                
-                Debug.Log("move" + CharacterPathfindingMovementHandler);
+                Debug.Log("move" + soldierPathfindingMovementHandler);
                 InformationController.Instance.SetInformationPanel(tempSO.uıImage,tempSO.name,
                     tempSO.ınformationSoldierObj,tempSO.typeOfSoldierName);
                 Debug.Log("VAR   "+GridCreator.Instance.pathfinding.GetNode(x,z).GetBuilding());
@@ -80,7 +80,7 @@ public class CharacterPathfindingMove : MonoBehaviour
 
     public void ClearCharacterPathfinding()
     {
-        CharacterPathfindingMovementHandler = null;
+        soldierPathfindingMovementHandler = null;
     }
 
     
