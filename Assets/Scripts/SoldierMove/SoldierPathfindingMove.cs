@@ -41,7 +41,7 @@ public class SoldierPathfindingMove : MonoBehaviour
                 }
             }
 
-            if (soldierPathfindingMovementHandler != null)
+            if (soldierPathfindingMovementHandler != null )
             {
                 soldierPathfindingMovementHandler.SetTargetPosition(mouseWorldPosition);
                 GridCreator.Instance.pathfinding.GetNode(x,y).SetCharacter( soldierPathfindingMovementHandler.gameObject,BuildingManager.Instance.GetActiveOldBuildingSo());
