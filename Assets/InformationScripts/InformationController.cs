@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class InformationController : MonoBehaviour
 {
+    public RectTransform InformationUpRectTransform;
     public Image InformationUpImage;
     public TMP_Text InformationUptext; 
     
@@ -41,7 +42,7 @@ public class InformationController : MonoBehaviour
     {
         ClearInformationPanelRawImageSoldierCreatedPoint();
         
-        DOScale(InformationUpImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"one");
+        DOScale(InformationUpRectTransform.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"one");
         DOScale(InformationDownImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"two");
         
         InformationUpImage.sprite = upImageSprite;
