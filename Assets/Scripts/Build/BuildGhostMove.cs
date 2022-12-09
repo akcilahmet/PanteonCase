@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.TextCore;
 
+[DefaultExecutionOrder(3001)]
 public class BuildGhostMove : MonoBehaviour
 {
     public GridBuilding _gridBuilding;
-    [SerializeField] private Transform ghostObj;
+    public Transform ghostObj;
    
     private void Start()
     {

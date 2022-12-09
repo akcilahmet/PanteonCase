@@ -5,7 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+[DefaultExecutionOrder(2900)]
 public class InformationController : MonoBehaviour
 {
     public RectTransform InformationUpRectTransform;
@@ -41,29 +41,38 @@ public class InformationController : MonoBehaviour
     public void SetInformationPanel(Sprite upImageSprite,string upTextString,GameObject ınformationSoldier,string downTextString)
     {
         ClearInformationPanelRawImageSoldierCreatedPoint();
-        
         DOScale(InformationUpRectTransform.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"one");
+
         DOScale(InformationDownImage.transform,new Vector3(1.2f, 1.2f, 1.2f),Vector3.one,"two");
-        
+
         InformationUpImage.sprite = upImageSprite;
+
         InformationUptext.text = upTextString.ToString();
-        
+
         InformationDowntext.text = downTextString.ToString();
-        if (ınformationSoldier.gameObject == null)
+
+        /*if (ınformationSoldier.gameObject == null)
         {
+            BuildingManager.Instance.testText.text = "btn click  8";
+
             InformationDownImage.gameObject.SetActive(false);
-            
+            BuildingManager.Instance.testText.text = "btn click  9";
+
+            ClearInformationPanelRawImageSoldierCreatedPoint();
+            BuildingManager.Instance.testText.text = "btn click  10";
+
+        }*/
+       // if (ınformationSoldier.gameObject != null)
+        {
             ClearInformationPanelRawImageSoldierCreatedPoint();
 
-        }
-        else
-        {
             var go = Instantiate(ınformationSoldier, ınformationPanelRawImageSoldierCreatedPoint.transform.position, Quaternion.identity);
+
             go.transform.SetParent(ınformationPanelRawImageSoldierCreatedPoint);
+
             InformationDownImage.gameObject.SetActive(true);
 
         }
-
 
     }
 
@@ -79,7 +88,11 @@ public class InformationController : MonoBehaviour
     {
         foreach (Transform child in ınformationPanelRawImageSoldierCreatedPoint.transform)
         {
-            Destroy(child.gameObject);
+            if (child.childCount > 0)
+            {
+                Destroy(child.gameObject);
+
+            }
         }
     }
    

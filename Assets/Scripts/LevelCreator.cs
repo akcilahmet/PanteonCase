@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[DefaultExecutionOrder(100)]
+[DefaultExecutionOrder(2000)]
 public class LevelCreator : MonoBehaviour
 {
     [SerializeField] private ProductionMenuSO productionMenuData;
@@ -23,7 +23,7 @@ public class LevelCreator : MonoBehaviour
         {
             Instance = this;
         }
-      
+        
         
     }
 

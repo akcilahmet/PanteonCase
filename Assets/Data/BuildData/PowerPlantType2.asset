@@ -15,7 +15,7 @@ MonoBehaviour:
   name: PowerPlant
   "u\u0131Image": {fileID: 21300000, guid: d10de57776c49bb4792d25c1c69ae501, type: 3}
   typeOfSoldierName: 
-  "\u0131nformationSoldierObj": {fileID: 0}
+  "\u0131nformationSoldierObj": {fileID: 2362756260617121759, guid: f559e45542554714abce8fde3a1d6f72, type: 3}
   soldierPrefab: {fileID: 7491343633622289123, guid: 901aba0f191116443b5b0696029b2b81, type: 3}
   buildingObj: {fileID: 297714945077854579, guid: d438dfe7adb29d643834c1ce8b3f4c34, type: 3}
   visual: {fileID: 8805559541669640545, guid: 32c5cc09be89c054897f89102b531bc8, type: 3}

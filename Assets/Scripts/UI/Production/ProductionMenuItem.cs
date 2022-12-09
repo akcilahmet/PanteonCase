@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[DefaultExecutionOrder(1000)]
+[DefaultExecutionOrder(3000)]
 public class ProductionMenuItem : MonoBehaviour
 {
     [SerializeField] private Image ımage;
@@ -13,34 +13,32 @@ public class ProductionMenuItem : MonoBehaviour
     [Header("BtnClick")][Space(10)]
     private Button button;
     [SerializeField] private AnimationCurve curve = null;
-   
+
    
     private void Awake()
     {
+        button = GetComponent<Button>();
         LevelCreator.Instance.AddProductionMenuItemList(this);
     }
 
     private void Start()
     {
-        button = GetComponent<Button>();
+       
         button.onClick.AddListener(() => GetBuildingPrefabObject());
     }
     
     public BuildingSO GetBuildingPrefabObject()
     {
-        if (buildingSO != null)
-        {
-            
-            
-            InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
+        BuildingManager.Instance.SetGetActiveBuildingSo(buildingSO);
+        
+        InformationController.Instance.SetInformationPanel(buildingSO.uıImage,buildingSO.name,
                 buildingSO.ınformationSoldierObj,buildingSO.typeOfSoldierName);
-           
-            BuildingManager.Instance.SetGetActiveBuildingSo(buildingSO);
-            BuildingManager.Instance.DeselectGhostObj();
-            return BuildingManager.Instance.GetActiveBuildingSo() ;
-        }
-
-        return null;
+        
+        BuildingManager.Instance.DeselectGhostObj();
+       
+        
+        return BuildingManager.Instance.GetActiveBuildingSo() ;
+      
     }
     
     

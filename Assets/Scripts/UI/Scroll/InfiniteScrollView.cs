@@ -57,11 +57,11 @@ public class InfiniteScrollView : MonoBehaviour ,IBeginDragHandler, IDragHandler
 
         if (drag)
         {
-            newPos.y = endItem.position.y - scrollContent.childHeight * 2f + scrollContent.itemSpacing;
+            newPos.y = endItem.position.y - scrollContent.childHeight * 1.7f + scrollContent.itemSpacing;
         }
         else
         {
-            newPos.y = endItem.position.y + scrollContent.childHeight * 2f - scrollContent.itemSpacing;
+            newPos.y = endItem.position.y + scrollContent.childHeight * 1.7f - scrollContent.itemSpacing;
         }
 
         currentItem.position = newPos;
