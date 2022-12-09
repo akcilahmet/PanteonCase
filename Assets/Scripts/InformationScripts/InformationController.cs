@@ -108,7 +108,7 @@ public class InformationController : MonoBehaviour
             canNotBeBuildTxt.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .6f).SetLoops(-1, LoopType.Yoyo).SetId("cannottext");
 
         }));
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         DOTween.Kill("cannottext");
         canNotBeBuildTxt.transform.DOScale(Vector3.zero, .3f);
     }
