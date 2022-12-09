@@ -17,6 +17,8 @@ public class InformationController : MonoBehaviour
     
     public Transform ınformationPanelRawImageSoldierCreatedPoint;
 
+    [SerializeField] private TMP_Text canNotBeBuildTxt;
+
     #region Singleton
 
     public static InformationController Instance { get; private set; }
@@ -95,7 +97,20 @@ public class InformationController : MonoBehaviour
             }
         }
     }
-   
 
+
+    public IEnumerator  CanNotBuildTxtState(Vector3 target)
+    {
+        
+        canNotBeBuildTxt.transform.localPosition = target;
+        canNotBeBuildTxt.transform.DOScale(Vector3.one, .3f).OnComplete((() =>
+        {
+            canNotBeBuildTxt.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .6f).SetLoops(-1, LoopType.Yoyo).SetId("cannottext");
+
+        }));
+        yield return new WaitForSeconds(3f);
+        DOTween.Kill("cannottext");
+        canNotBeBuildTxt.transform.DOScale(Vector3.zero, .3f);
+    }
    
 }
