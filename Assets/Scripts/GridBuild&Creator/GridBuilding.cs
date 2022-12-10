@@ -68,7 +68,7 @@ public class GridBuilding : MonoBehaviour
             }
             else if(!canBuild )
             {
-                Debug.Log("build varr");
+               // Debug.Log("build varr");
                 StartCoroutine(InformationController.Instance.CanNotBuildTxtState(placedObjectWorldPosition+new Vector3(0,3,0)));
             }
            
